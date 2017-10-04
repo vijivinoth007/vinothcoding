@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" >
+
+<parameter name="browser" value="chrome" > </parameter>
+<parameter name="url" value="http://leaftaps.com/opentaps"> </parameter>
+<parameter name="username" value="DemoSalesManager"> </parameter>
+<parameter name="password" value="crmsfa"> </parameter>
+
+  <test name="sequential" parallel="false" >
+  
+    <classes>
+    
+      <class name="wrappers.CreateLead"/>
+      <class name="wrappers.EditLead"/>
+    </classes>
+    
+  </test> <!-- Test -->
+  
+   <test name="parallel" parallel="classes" thread-count="4">
+  
+    <classes>
+      <class name="wrappers.DeleteLead"/>
+      <class name="wrappers.MergeLead"/>
+      
+    </classes>
+    
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
